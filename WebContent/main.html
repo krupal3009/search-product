@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+ 
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="main.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
+<script src="main.js"></script>
+</head>
+<body ng-controller="mainctrl">
+
+	<div id="maindivtop">
+		<div class="inner-addon left-addon">
+		    <i class="glyphicon glyphicon-search"></i>
+			<input type="text" ng-model="search">
+			<button>Search</button>
+			<input type="checkbox" ng-model="exactSearch"> Exact Search
+		</div>
+		
+	</div>
+	<div id="maindivbottom">
+		<div class="childdiv" ng-show="search" ng-class="(x.gender=='M')?'redclass':'blueclass'" ng-repeat="x in contacts|filter:{name:search}:exactSearch">
+			<p id="namePara"><strong>{{x.name}}</strong></p>
+			<p>Gender:{{x.gender}}</p>
+			<p>City:{{x.city}}</p>
+			
+		</div>
+	</div>
+
+</body>
+</html>
+
